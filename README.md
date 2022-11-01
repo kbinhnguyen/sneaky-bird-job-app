@@ -1,2 +1,1 @@
-
 # sneaky-bird-job-app
