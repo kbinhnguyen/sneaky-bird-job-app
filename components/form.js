@@ -1,16 +1,38 @@
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 export default function Form(){
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const submitSuccess = (data) => {
-    console.log(data);
+    // console.log(data);
+    //
+    // Object.keys(data).forEach((field) => {
+    //   if (field !== 'resume')
+    //   formData.append(field, data[field])
+    // });
+    // console.log(formData);
+    // const data1 = data;
+    // delete data1.resume;
+    // axios.post('/api/apply', { ...data1 });
+    const formData = new FormData();
+    formData.append('resume', data.resume[0]);
+    axios.post('/api/apply', formData, {
+      // headers: {
+      //   'Content-Type': 'multipart/form-data'
+      // },
+    });
+  };
+
+  const submitError = (err) => {
+    console.log(err);
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit(submitSuccess)}>
+      <form
+        // encType="multipart/form-data"
+        onSubmit={handleSubmit(submitSuccess, submitError)}>
         <div>
-          {console.log(errors)}
           <label>
             <div>First Name</div>
             <div>
@@ -81,8 +103,23 @@ export default function Form(){
           <label>
             <div>Upload Your Resume</div>
             <input
-              {...register('resume')}
+              {...register(
+                'resume',
+                {
+                  validate: {
+                    quantity: (input) => (input.length === 1),
+                    fileFormat: (input) => ([
+                      'application/pdf',
+                      'application/msword',
+                      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    ].includes(input[0].type)),
+                    size: (input) => (input[0].size <= 10000000),
+                  },
+                }
+              )}
+              name="resume"
               type="file"
+              multiple={false}
               accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             />
             <div>Accepted file types: pdf, doc, docx.</div>
