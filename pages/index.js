@@ -1,10 +1,15 @@
 import styles from '../styles/Home.module.css';
-import Form from '../components/form';
+import Form from '../components/Form';
+import Info from '../components/Info';
+import ImagesSlide from '../components/ImagesSlide';
 
 export default function Home() {
   return (
     <div>
-      <h3>This is the Home page</h3>
+      <div>
+        <Info />
+        <ImagesSlide />
+      </div>
       <Form />
     </div>
   )

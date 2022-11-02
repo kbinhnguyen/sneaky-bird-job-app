@@ -4,16 +4,6 @@ import axios from 'axios';
 export default function Form(){
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const submitSuccess = (data) => {
-    // console.log(data);
-    //
-    // Object.keys(data).forEach((field) => {
-    //   if (field !== 'resume')
-    //   formData.append(field, data[field])
-    // });
-    // console.log(formData);
-    // const data1 = data;
-    // delete data1.resume;
-    // axios.post('/api/apply', { ...data1 });
     const formData = new FormData();
     formData.append('resume', data.resume[0]);
     axios.post('/api/apply', formData, {
@@ -74,12 +64,9 @@ export default function Form(){
             <div>
               <select {...register('position', { required: 'Missing application position' })}>
                 <option value="">-</option>
-                <option value="Bartender">Bartender</option>
-                <option value="Server">Server</option>
-                <option value="Cooks">Cooks</option>
-                <option value="Food/Line Prep">Food/Line Prep</option>
-                <option value="Dishwasher">Dishwasher</option>
-                <option value="Host/Hostess">Host/Hostess</option>
+                <option value="Counter">Counter</option>
+                <option value="Carry Out">Carry Out</option>
+                <option value="Culinary">Culinary</option>
               </select>
             </div>
             {errors?.position && errors?.position.message}
@@ -99,7 +86,7 @@ export default function Form(){
             {errors?.time && errors?.time.message}
           </label>
         </div>
-        <div>
+        {/* <div>
           <label>
             <div>Upload Your Resume</div>
             <input
@@ -125,7 +112,7 @@ export default function Form(){
             <div>Accepted file types: pdf, doc, docx.</div>
             {errors?.resume && errors?.resume.message}
           </label>
-        </div>
+        </div> */}
         <input type="submit" />
       </form>
     </div>
