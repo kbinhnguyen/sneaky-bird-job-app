@@ -79,7 +79,7 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Position To Apply For <span>*</span></div>
-              <div>
+              <div className="select-input">
                 <select {...register('position', { required: 'Missing application position' })}>
                   <option value="">-</option>
                   <option value="Counter">Counter</option>
@@ -93,7 +93,7 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Best Time To Reach You <span>*</span></div>
-              <div>
+              <div className="select-input">
                 <select {...register('time', { required: 'Missing time to contact' })}>
                   <option value="">-</option>
                   <option value="Morning">Morning</option>
@@ -174,13 +174,13 @@ export default function Form(){
           }
 
           .field {
-            padding-top: 10px;
+            padding-top: 1px;
             width: 100%;
           }
 
           label {
             display: grid;
-            gap: 10px;
+            gap: 5px;
           }
 
           #submit-wrapper {
@@ -196,6 +196,7 @@ export default function Form(){
           .text-input-input {
             border: 0;
             background: transparent;
+            padding-bottom: 10px;
           }
 
           input:focus {
@@ -213,10 +214,17 @@ export default function Form(){
             appearance: none;
             border: 0;
             border-bottom: 1px solid #222;
+            background-position: right;
+            background-repeat: no-repeat;
+            background-image: url('https://www.svgrepo.com/show/12432/down-chevron.svg');
          }
 
          select:focus {
           outline: none;
+        }
+
+        .select-input {
+          cursor: pointer;
         }
 
         `}

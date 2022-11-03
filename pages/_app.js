@@ -4,6 +4,9 @@ export default function CustomApp({ Component, pageProps }){
       <Component {...pageProps} />
       <style jsx global>
         {`
+          body {
+            font-family: 'Open Sans';
+          }
           .btn {
             display: flex;
             border-radius: 10px;
