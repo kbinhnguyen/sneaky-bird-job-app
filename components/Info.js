@@ -1,6 +1,7 @@
 import Link from 'next/link';
-export default function Info() {
+import logo from '../public/images/logo.svg';
 
+export default function Info() {
   return (
     <div id="info">
       <div id="info-content">
@@ -16,7 +17,7 @@ export default function Info() {
           </div>
         </div>
         <div>NOW HIRING</div>
-        <Link href="#form">
+        <Link href="#form" id="link">
           <div className="btn">
             Apply Now
           </div>
@@ -28,6 +29,7 @@ export default function Info() {
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #F2DECB;
           }
 
           #info-content {

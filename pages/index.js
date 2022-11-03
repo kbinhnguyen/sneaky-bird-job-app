@@ -21,8 +21,7 @@ export default function Home() {
           #upper-section {
             display: grid;
             grid-template-columns: 1fr max-content;
-            width: 100vw;
-            height: 100vh;
+            height: 750px;
           }
         `}
       </style>

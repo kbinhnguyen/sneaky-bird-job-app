@@ -7,10 +7,12 @@ export default function CustomApp({ Component, pageProps }){
           body {
             font-family: 'Open Sans';
           }
+
           input {
             font-family: 'Open Sans';
             font-size: 16px;
           }
+
           .btn {
             display: flex;
             border-radius: 10px;
@@ -22,6 +24,14 @@ export default function CustomApp({ Component, pageProps }){
             justify-content: center;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 14px;
+          }
+
+          a:link {
+            text-decoration: none;
+          }
+
+          a:visited {
+            text-decoration: none;
           }
         `}
       </style>
