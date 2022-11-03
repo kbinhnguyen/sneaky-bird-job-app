@@ -27,11 +27,11 @@ export default function Form(){
           <div className="field">
             <label>
               <div>First Name <span>*</span></div>
-              <div>
+              <div className="text-input">
                 <input
                   {...register('firstName', { required: 'Missing first name'})}
                   type="text"
-                  className="text-input"
+                  className="text-input-input"
                 />
               </div>
               {errors?.firstName && errors?.firstName.message}
@@ -40,11 +40,11 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Last Name <span>*</span></div>
-              <div>
+              <div className="text-input">
                 <input
                   {...register('lastName', { required: 'Missing last name' })}
                   type="text"
-                  className="text-input"
+                  className="text-input-input"
                 />
               </div>
               {errors?.lastName && errors?.lastName.message}
@@ -53,11 +53,11 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Phone Number <span>*</span></div>
-              <div>
+              <div className="text-input">
                 <input
                   {...register('phone', { required: 'Missing phone number' })}
                   type="tel"
-                  className="text-input"
+                  className="text-input-input"
                 />
               </div>
               {errors?.phone && errors?.phone.message}
@@ -66,11 +66,11 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Email Address <span>*</span></div>
-              <div>
+              <div className="text-input">
                 <input
                   {...register('email', { required: 'Missing email address' })}
                   type="email"
-                  className="text-input"
+                  className="text-input-input"
                 />
               </div>
               {errors?.email && errors?.email.message}
@@ -107,10 +107,10 @@ export default function Form(){
           <div className="field">
             <label>
               <div>Résumé URL</div>
-              <div>
+              <div className="text-input">
                 <input
                   type="url" {...register('resume')}
-                  className="text-input"
+                  className="text-input-input"
                 />
               </div>
             </label>
@@ -190,8 +190,11 @@ export default function Form(){
           .text-input {
             width: 80%;
             cursor: text;
-            border: 0;
             border-bottom: 1px solid #222;
+          }
+
+          .text-input-input {
+            border: 0;
             background: transparent;
           }
 
@@ -202,6 +205,19 @@ export default function Form(){
           span {
             color: red;
           }
+
+          select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 80%;
+            appearance: none;
+            border: 0;
+            border-bottom: 1px solid #222;
+         }
+
+         select:focus {
+          outline: none;
+        }
 
         `}
       </style>
