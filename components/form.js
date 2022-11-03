@@ -34,7 +34,7 @@ export default function Form(){
                   className="text-input-input"
                 />
               </div>
-              {errors?.firstName && errors?.firstName.message}
+              {errors?.firstName && (<em className="error">{errors?.firstName.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -47,7 +47,7 @@ export default function Form(){
                   className="text-input-input"
                 />
               </div>
-              {errors?.lastName && errors?.lastName.message}
+              {errors?.lastName && (<em className="error">{errors?.lastName.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -60,7 +60,7 @@ export default function Form(){
                   className="text-input-input"
                 />
               </div>
-              {errors?.phone && errors?.phone.message}
+              {errors?.phone && (<em className="error">{errors?.phone.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -73,7 +73,7 @@ export default function Form(){
                   className="text-input-input"
                 />
               </div>
-              {errors?.email && errors?.email.message}
+              {errors?.email && (<em className="error">{errors?.email.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -87,7 +87,7 @@ export default function Form(){
                   <option value="Culinary">Culinary</option>
                 </select>
               </div>
-              {errors?.position && errors?.position.message}
+              {errors?.position && (<em className="error">{errors?.position.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -101,7 +101,7 @@ export default function Form(){
                   <option value="Evening">Evening</option>
                 </select>
               </div>
-              {errors?.time && errors?.time.message}
+              {errors?.time && (<em className="error">{errors?.time.message}</em>)}
             </label>
           </div>
           <div className="field">
@@ -229,6 +229,11 @@ export default function Form(){
           width: 80%;
           border-bottom: 1px solid #222;
           padding-bottom: 8px;
+        }
+
+        .error {
+          color: red;
+          font-size: 14px;
         }
 
         `}

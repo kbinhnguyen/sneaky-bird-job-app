@@ -7,6 +7,10 @@ export default function CustomApp({ Component, pageProps }){
           body {
             font-family: 'Open Sans';
           }
+          input {
+            font-family: 'Open Sans';
+            font-size: 16px;
+          }
           .btn {
             display: flex;
             border-radius: 10px;
