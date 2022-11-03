@@ -26,13 +26,14 @@ export default function ImagesSlide() {
 
   return (
     <div id="img-wrapper" className="wrapper">
-      <Image className="image"
-        placeholder="blur"
-        src={imgSrc}
-        alt="saucy-fried-chicken"
-        width={500}
-        priority={true}
-      />
+        <Image className="image"
+          src={imgSrc}
+          alt=""
+          width={500}
+          priority={true}
+          key={index}
+        />
+
       <style jsx>
         {`
           #img-wrapper {
@@ -40,6 +41,10 @@ export default function ImagesSlide() {
             height: max-content;
             position: relative;
             margin: 0 auto;
+          }
+
+          #img-wrapper img {
+            position: absolute;
           }
         `}
       </style>
