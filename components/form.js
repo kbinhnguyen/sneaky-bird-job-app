@@ -24,45 +24,61 @@ export default function Form(){
         <form id="form-form"
           // encType="multipart/form-data"
           onSubmit={handleSubmit(submitSuccess, submitError)}>
-          <div>
+          <div className="field">
             <label>
-              <div>First Name</div>
+              <div>First Name <span>*</span></div>
               <div>
-                <input {...register('firstName', { required: 'Missing first name'})} type="text" />
+                <input
+                  {...register('firstName', { required: 'Missing first name'})}
+                  type="text"
+                  className="text-input"
+                />
               </div>
-              {errors?.firstname && errors?.firstName.message}
+              {errors?.firstName && errors?.firstName.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
-              <div>Last Name</div>
+              <div>Last Name <span>*</span></div>
               <div>
-                <input {...register('lastName', { required: 'Missing last name' })} type="text" />
+                <input
+                  {...register('lastName', { required: 'Missing last name' })}
+                  type="text"
+                  className="text-input"
+                />
               </div>
               {errors?.lastName && errors?.lastName.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
-              <div>Phone Number</div>
+              <div>Phone Number <span>*</span></div>
               <div>
-                <input {...register('phone', { required: 'Missing phone number' })} type="tel" />
+                <input
+                  {...register('phone', { required: 'Missing phone number' })}
+                  type="tel"
+                  className="text-input"
+                />
               </div>
               {errors?.phone && errors?.phone.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
-              <div>Email Address</div>
+              <div>Email Address <span>*</span></div>
               <div>
-                <input {...register('email', { required: 'Missing email address' })} type="email" />
+                <input
+                  {...register('email', { required: 'Missing email address' })}
+                  type="email"
+                  className="text-input"
+                />
               </div>
               {errors?.email && errors?.email.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
-              <div>Position To Apply For</div>
+              <div>Position To Apply For <span>*</span></div>
               <div>
                 <select {...register('position', { required: 'Missing application position' })}>
                   <option value="">-</option>
@@ -74,9 +90,9 @@ export default function Form(){
               {errors?.position && errors?.position.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
-              <div>Best Time To Reach You</div>
+              <div>Best Time To Reach You <span>*</span></div>
               <div>
                 <select {...register('time', { required: 'Missing time to contact' })}>
                   <option value="">-</option>
@@ -88,11 +104,14 @@ export default function Form(){
               {errors?.time && errors?.time.message}
             </label>
           </div>
-          <div>
+          <div className="field">
             <label>
               <div>Résumé URL</div>
               <div>
-                <input type="url" {...register('resume')} />
+                <input
+                  type="url" {...register('resume')}
+                  className="text-input"
+                />
               </div>
             </label>
           </div>
@@ -123,7 +142,9 @@ export default function Form(){
               {errors?.resume && errors?.resume.message}
             </label>
           </div> */}
-          <input type="submit" className="btn" />
+          <div id="submit-wrapper">
+            <input type="submit" className="btn" />
+          </div>
         </form>
       </div>
       <style jsx>
@@ -136,20 +157,50 @@ export default function Form(){
           }
 
           #form-box {
-            background: green;
+            background: white;
             width: 500px;
             padding: 40px;
-            border: solid black;
+            border: 3px solid black;
             border-radius: 10px;
           }
 
           #form-form {
             display: grid;
-            background: red;
+            padding-top: 10px;
             height: 500px;
-            width: max-content;
+            width: 100%;
             align-items: center;
             grid-template-rows: repeat(8, 1fr);
+          }
+
+          .field {
+            padding-top: 10px;
+            width: 100%;
+          }
+
+          label {
+            display: grid;
+            gap: 10px;
+          }
+
+          #submit-wrapper {
+            padding-top: 15px;
+          }
+
+          .text-input {
+            width: 80%;
+            cursor: text;
+            border: 0;
+            border-bottom: 1px solid #222;
+            background: transparent;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          span {
+            color: red;
           }
 
         `}
