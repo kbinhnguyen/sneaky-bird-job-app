@@ -17,7 +17,7 @@ export default function CustomApp({ Component, pageProps }){
             display: flex;
             border-radius: 10px;
             background: #1A1A1A;
-            width: 110px;
+            width: 120px;
             height: 40px;
             color: white;
             align-items: center;

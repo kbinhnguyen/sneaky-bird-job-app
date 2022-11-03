@@ -4,6 +4,9 @@ import logo from '../public/images/logo.svg';
 export default function Info() {
   return (
     <div id="info">
+      <div id="logo-section">
+        never ever fried
+      </div>
       <div id="info-content">
         <div id="info-content-detail">
           <div className="line">
@@ -27,20 +30,23 @@ export default function Info() {
         {`
           #info {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background: #F2DECB;
           }
 
           #info-content {
-            background: red;
             display: grid;
+            gap: 30px;
             justify-items: center;
+            font-size: 20px;
           }
 
           #info-content-detail {
             display: grid;
             justify-items: center;
+            gap: 5px;
           }
         `}
       </style>
