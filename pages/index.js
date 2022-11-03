@@ -33,8 +33,9 @@ export default function Home() {
           }
           #upper-section {
             display: grid;
-            grid-template-columns: 1fr max-content;
+            grid-template-columns: 1fr 500px;
             height: 750px;
+            // overflow: hidden;
           }
         `}
       </style>
