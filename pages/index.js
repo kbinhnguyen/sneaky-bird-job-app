@@ -6,7 +6,7 @@ import ImagesSlide from '../components/ImagesSlide';
 export default function Home() {
 
   return (
-    <div>
+    <div id="main">
       <div id="upper-section">
         <Info />
         <ImagesSlide />
@@ -14,6 +14,10 @@ export default function Home() {
       <Form />
       <style jsx>
         {`
+          #main {
+            display: grid;
+            grid-template-rows: max-content 100vh;
+          }
           #upper-section {
             display: grid;
             grid-template-columns: 1fr max-content;
