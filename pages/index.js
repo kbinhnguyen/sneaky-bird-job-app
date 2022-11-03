@@ -29,7 +29,7 @@ export default function Home() {
         {`
           #main {
             display: grid;
-            grid-template-rows: max-content 100vh;
+            grid-template-rows: repeat(2, max-content);
           }
           #upper-section {
             display: grid;

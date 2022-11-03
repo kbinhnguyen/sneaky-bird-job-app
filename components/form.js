@@ -150,6 +150,9 @@ export default function Form(){
       <style jsx>
         {`
           #form {
+            height: max-content;
+            padding-top: 70px;
+            padding-bottom: 70px;
             display: grid;
             align-content: center;
             justify-content: center;
