@@ -18,7 +18,7 @@ export default function Form(){
   }
 
   return (
-    <div>
+    <div id="form">
       <form
         // encType="multipart/form-data"
         onSubmit={handleSubmit(submitSuccess, submitError)}>
@@ -113,7 +113,7 @@ export default function Form(){
             {errors?.resume && errors?.resume.message}
           </label>
         </div> */}
-        <input type="submit" />
+        <input type="submit" className="btn" />
       </form>
     </div>
   );

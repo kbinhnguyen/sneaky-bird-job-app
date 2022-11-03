@@ -3,16 +3,17 @@ import firstImg from '../public/images/SMPM3453.jpg';
 
 export default function ImagesSlide() {
   return (
-    <div classname="wrapper">
-      <Image classname="image" src={firstImg} alt="saucy-fried-chicken" />
+    <div className="wrapper">
+      <Image className="image"
+        src={firstImg}
+        alt="saucy-fried-chicken"
+        width={500}
+      />
       <style jsx>
         {`
-          wrapper {
-            position: fixed;
-          }
-
-          image {
-            object-fit: cover;
+          .wrapper {
+            width: 100%;
+            height: 100%;
           }
         `}
       </style>

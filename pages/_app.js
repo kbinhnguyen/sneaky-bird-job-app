@@ -1,7 +1,23 @@
-import '../styles/globals.css'
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function CustomApp({ Component, pageProps }){
+  return (
+    <>
+      <Component {...pageProps} />
+      <style jsx global>
+        {`
+          .btn {
+            display: flex;
+            border-radius: 10px;
+            background: #1A1A1A;
+            width: 110px;
+            height: 40px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+          }
+        `}
+      </style>
+    </>
+  );
 }
-
-export default MyApp
