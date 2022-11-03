@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import first from '../public/images/SMPM3453.jpg';
 import second from '../public/images/SMPM3305-2.jpg';
@@ -11,21 +11,18 @@ import eighth from '../public/images/SMPS2666.jpg';
 import ninth from '../public/images/SMPS2723.jpg';
 import tenth from '../public/images/SMPS2726.jpg';
 
-const srcs = [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth];
-
 export default function ImagesSlide() {
-  const [imgSrc, setImgSrc] = useState(first);
+  const srcs = useMemo(() => [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth], []);
+  const [index, setIndex] = useState(0);
+  const imgSrc = useMemo(() => (srcs[index]), [srcs, index]);
 
   useEffect(() => {
-    const interval = setTimeout(() => {
-      const index = srcs.indexOf(imgSrc);
-      if (index < 9) {
-        setImgSrc(srcs[index + 1]);
-      } else {
-        setImgSrc(first);
-      }
+    const interval = setInterval(() => {
+      setIndex((prevInd) => (prevInd + 1) % 10)
     }, 3000);
-  }, [imgSrc]);
+
+    return () => clearInterval(interval);
+  }, [srcs]);
 
   return (
     <div id="img-wrapper" className="wrapper">
