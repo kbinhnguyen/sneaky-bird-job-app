@@ -8,6 +8,7 @@ export default function ImagesSlide() {
         src={firstImg}
         alt="saucy-fried-chicken"
         width={500}
+        priority={true}
       />
       <style jsx>
         {`

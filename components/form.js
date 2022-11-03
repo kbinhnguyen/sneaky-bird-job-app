@@ -167,10 +167,11 @@ export default function Form(){
           #form-form {
             display: grid;
             padding-top: 10px;
-            height: 500px;
+            height: max-content;
             width: 100%;
             align-items: center;
             grid-template-rows: repeat(8, 1fr);
+            gap: 15px;
           }
 
           .field {
@@ -196,7 +197,7 @@ export default function Form(){
           .text-input-input {
             border: 0;
             background: transparent;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
           }
 
           input:focus {
@@ -210,11 +211,12 @@ export default function Form(){
           select {
             -webkit-appearance: none;
             -moz-appearance: none;
-            width: 80%;
             appearance: none;
             border: 0;
-            border-bottom: 1px solid #222;
-            background-position: right;
+            width: 100%;
+            cursor: pointer;
+            background-size: 10px;
+            background-position: 98%;
             background-repeat: no-repeat;
             background-image: url('https://www.svgrepo.com/show/12432/down-chevron.svg');
          }
@@ -224,7 +226,9 @@ export default function Form(){
         }
 
         .select-input {
-          cursor: pointer;
+          width: 80%;
+          border-bottom: 1px solid #222;
+          padding-bottom: 8px;
         }
 
         `}
