@@ -3,14 +3,29 @@ import axios from 'axios';
 
 export default function Form(){
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const submitSuccess = (data) => {
-    const formData = new FormData();
-    formData.append('resume', data.resume[0]);
-    axios.post('/api/apply', formData, {
-      // headers: {
-      //   'Content-Type': 'multipart/form-data'
-      // },
-    });
+  const submitSuccess = async (data) => {
+    let inputData = data;
+    console.log(data.resume[0].name);
+    if (data.resume) {
+      try {
+        const fileName = data.resume[0].name;
+        const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
+        const response = await axios.post('/api/apply', {...data, resume: true, fileType });
+        const { url } = response.data;
+        const formData = new FormData();
+        formData.append('resume', data.resume[0]);
+        const awsRes = await axios.put(url, data.resume[0]);
+        console.log('aws response', awsRes.data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    // axios.post('/api/apply', formData, {
+    //   // headers: {
+    //   //   'Content-Type': 'multipart/form-data'
+    //   // },
+    // });
   };
 
   const submitError = (err) => {
@@ -104,7 +119,7 @@ export default function Form(){
               {errors?.time && (<em className="error">{errors?.time.message}</em>)}
             </label>
           </div>
-          <div className="field">
+          {/* <div className="field">
             <label>
               <div>Résumé URL</div>
               <div className="text-input">
@@ -114,8 +129,8 @@ export default function Form(){
                 />
               </div>
             </label>
-          </div>
-          {/* <div>
+          </div> */}
+          <div className="field">
             <label>
               <div>Upload Your Resume</div>
               <input
@@ -141,7 +156,7 @@ export default function Form(){
               <div>Accepted file types: pdf, doc, docx.</div>
               {errors?.resume && errors?.resume.message}
             </label>
-          </div> */}
+          </div>
           <div id="submit-wrapper">
             <input type="submit" className="btn" />
           </div>
