@@ -22,7 +22,6 @@ export default function Form(){
         await axios.put(url, data.resume[0]);
         setStatus('success');
       } catch (e) {
-        console.log(e);
         setStatus('error');
       }
     } else {
@@ -30,7 +29,6 @@ export default function Form(){
         await axios.post('/api/apply', { ...data, resume: false });
         setStatus('success');
       } catch (e) {
-        console.log(e);
         setStatus('error');
       }
     }
@@ -170,19 +168,21 @@ export default function Form(){
       <style jsx>
         {`
           #form {
+            width: 100vw;
             height: max-content;
             padding-top: 70px;
             padding-bottom: 70px;
             display: grid;
             align-content: center;
             justify-content: center;
+            justify-items: center;
             background: #E48225;
           }
 
           #form-box {
             background: white;
-            width: 500px;
-            padding: 40px;
+            width: 60vw;
+            padding: 60px;
             border: 3px solid black;
             border-radius: 10px;
           }

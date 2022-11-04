@@ -32,7 +32,7 @@ export default function Home() {
           }
           #upper-section {
             display: grid;
-            grid-template-columns: 1fr 500px;
+            grid-template-columns: repeat(2, 1fr);
             height: 750px;
           }
         `}
