@@ -27,6 +27,10 @@ export default function CustomApp({ Component, pageProps }){
             transition: transform 250ms ease-in;
           }
 
+          .btn:disabled {
+            background: #CDCDCD;
+          }
+
           a:link {
             text-decoration: none;
           }

@@ -41,7 +41,7 @@ export default function Form(){
           onSubmit={handleSubmit(submitSuccess, submitError)}>
           <div className="field">
             <label>
-              <div>First Name <span>*</span></div>
+              <div className="label-name">First Name <span>*</span></div>
               <div className="text-input">
                 <input
                   {...register('firstName', { required: 'Missing first name'})}
@@ -54,7 +54,7 @@ export default function Form(){
           </div>
           <div className="field">
             <label>
-              <div>Last Name <span>*</span></div>
+              <div className="label-name">Last Name <span>*</span></div>
               <div className="text-input">
                 <input
                   {...register('lastName', { required: 'Missing last name' })}
@@ -67,7 +67,7 @@ export default function Form(){
           </div>
           <div className="field">
             <label>
-              <div>Phone Number <span>*</span></div>
+              <div className="label-name">Phone Number <span>*</span></div>
               <div className="text-input">
                 <input
                   {...register('phone', { required: 'Missing phone number' })}
@@ -80,7 +80,7 @@ export default function Form(){
           </div>
           <div className="field">
             <label>
-              <div>Email Address <span>*</span></div>
+              <div className="label-name">Email Address <span>*</span></div>
               <div className="text-input">
                 <input
                   {...register('email', { required: 'Missing email address' })}
@@ -93,7 +93,7 @@ export default function Form(){
           </div>
           <div className="field">
             <label>
-              <div>Position To Apply For <span>*</span></div>
+              <div className="label-name">Position To Apply For <span>*</span></div>
               <div className="select-input">
                 <select {...register('position', { required: 'Missing application position' })}>
                   <option value="">-</option>
@@ -107,7 +107,7 @@ export default function Form(){
           </div>
           <div className="field">
             <label>
-              <div>Best Time To Reach You <span>*</span></div>
+              <div className="label-name">Best Time To Reach You <span>*</span></div>
               <div className="select-input">
                 <select {...register('time', { required: 'Missing time to contact' })}>
                   <option value="">-</option>
@@ -119,20 +119,9 @@ export default function Form(){
               {errors?.time && (<em className="error">{errors?.time.message}</em>)}
             </label>
           </div>
-          {/* <div className="field">
-            <label>
-              <div>Résumé URL</div>
-              <div className="text-input">
-                <input
-                  type="url" {...register('resume')}
-                  className="text-input-input"
-                />
-              </div>
-            </label>
-          </div> */}
           <div className="field">
             <label>
-              <div>Upload Your Resume</div>
+              <div className="label-name">Upload Your Resume</div>
               <input
                 {...register(
                   'resume',
@@ -158,7 +147,7 @@ export default function Form(){
             </label>
           </div>
           <div id="submit-wrapper">
-            <input type="submit" className="btn" />
+            <input type="submit" disabled={!!errors} className="btn" />
           </div>
         </form>
       </div>
@@ -213,6 +202,7 @@ export default function Form(){
           }
 
           .text-input-input {
+            width: 100%;
             border: 0;
             background: transparent;
             padding-bottom: 8px;
@@ -252,6 +242,10 @@ export default function Form(){
         .error {
           color: red;
           font-size: 14px;
+        }
+
+        .label-name {
+          color: #E48225;
         }
 
         `}
