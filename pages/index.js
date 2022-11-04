@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import Form from '../components/Form';
-import Info from '../components/Info';
-import ImagesSlide from '../components/ImagesSlide';
+import Form from '../components/Form.js';
+import Info from '../components/Info.js';
+import ImagesSlide from '../components/ImagesSlide.js';
 
 export default function Home() {
   useEffect(() => {
