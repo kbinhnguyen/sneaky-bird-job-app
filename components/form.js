@@ -167,8 +167,9 @@ export default function Form(){
       <style jsx>
         {`
           #form {
+            position: relative;
             width: 100vw;
-            height: max-content;
+            height: 900px;
             padding-top: 70px;
             padding-bottom: 70px;
             display: grid;
@@ -179,18 +180,28 @@ export default function Form(){
           }
 
           #form-box {
+            top: 60px;
             background: white;
-            width: 60vw;
+            position: absolute;
+            width: 60%;
             padding: 60px;
             border: 3px solid black;
             border-radius: 10px;
           }
 
           @media (max-width: 700px) {
+            #form-title {
+              padding-left: 50px;
+            }
             #form-box {
-              width: 95vw;
+              width: 95%;
               padding-left: 10px;
               padding-right: 10px;
+            }
+
+            #form-form {
+              padding-left: 50px;
+              width: 100%;
             }
           }
 

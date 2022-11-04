@@ -25,46 +25,56 @@ export default function ImagesSlide() {
   }, [index]);
 
   return (
-    <div id="img-wrapper" className="wrapper">
-      <motion.div className="wrapper"
-        key={index}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1}}
-        transition={{ duration: 1.5 }}
-      >
-        <Image className="image"
-          src={imgSrc}
-          alt=""
-          // sizes="(min-width: 701px) 50vw, (max-width: 700px) 100vw"
-          width={700}
-          priority={true}
-        />
-      </motion.div>
-
+    <div id="img-wrapper">
+      <div className="another-wrapper">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1}}
+          transition={{ duration: 1.5 }}
+        >
+          <Image className="image"
+            src={imgSrc}
+            alt=""
+            priority={true}
+            objectFit="cover"
+            fill
+          />
+        </motion.div>
+      </div>
       <style jsx>
-        {`
-          #img-wrapper {
-            width: 100%;
-            height: 100vh;
-            margin: 0 auto;
-            overflow: hidden;
-          }
-          .wrapper {
-            height: 100vh;
-          }
-
-          #img-wrapper img {
-            object-fit: cover;
-            width: 100%;
-          }
-
-          @media (max-width: 700px) {
+          {`
             #img-wrapper {
-              width: 100vw;
+              width: 100%;
+              height: 100%;
+              margin: 0 auto;
+              overflow: hidden;
+              grid-column: 2 / 3;
+              position: absolute;
+              display: grid;
             }
-          }
-        `}
-      </style>
+
+            .another-wrapper {
+              grid-row: 1 / 2;
+              grid-column: 1 / 2;
+              position: relative;
+              width: 100%;
+              height: 100%;
+            }
+
+            .img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+
+            @media (max-width: 700px) {
+              #img-wrapper {
+                grid-row: 2 / 3;
+              }
+            }
+          `}
+        </style>
     </div>
   )
 }

@@ -34,6 +34,10 @@ export default function Info() {
       <style jsx>
         {`
           #info {
+            height: 100%;
+            width: 100%;
+            grid-column: 1 / 2;
+            position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -44,7 +48,6 @@ export default function Info() {
 
           @media (max-width: 700px) {
             #info {
-              width: 100vw;
               height: max-content;
               padding-top: 60px;
               padding-bottom: 60px;

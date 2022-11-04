@@ -31,10 +31,11 @@ export default function Home() {
             grid-template-rows: repeat(2, max-content);
           }
           #upper-section {
+            position: relative;
             width: 100vw;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            height: 750px;
+            height: 100vh;
           }
           @media(max-width: 700px) {
             #upper-section {
