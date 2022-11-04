@@ -10,7 +10,6 @@ export default function Form(){
 
   const submitSuccess = async (data) => {
     setStatus('loading');
-    let inputData = data;
     if (data.resume && data.resume.length > 0) {
       try {
         const fileName = data.resume[0].name;
