@@ -23,6 +23,7 @@ export default function Form(){
         setStatus('success');
       } catch (e) {
         console.log(e);
+        setStatus('error');
       }
     } else {
       try {
@@ -30,13 +31,11 @@ export default function Form(){
         setStatus('success');
       } catch (e) {
         console.log(e);
+        setStatus('error');
       }
     }
   };
 
-  const submitError = (err) => {
-    console.log(err);
-  }
 
   return (
     <div id="form">
@@ -50,7 +49,7 @@ export default function Form(){
         {status !== 'success' && (
           <>
             <div id="form-title">EMPLOYMENT APPLICATION</div>
-            <form id="form-form" onSubmit={handleSubmit(submitSuccess, submitError)}>
+            <form id="form-form" onSubmit={handleSubmit(submitSuccess)}>
               <div className="field">
                 <label>
                   <div className="label-name">First Name <span>*</span></div>
@@ -148,10 +147,17 @@ export default function Form(){
                 </label>
               </div>
               <div id="submit-wrapper">
-                {status === null && (<input type="submit" disabled={!isValid} className="btn" />)}
+                {status !== 'loading' && (
+                  <div className="loading-div">
+                    <input type="submit" disabled={!isValid} className="btn" />
+                    {status === 'error' && (
+                      <div id="submit-error">Submission was unsuccessful.<br />Please try again later!</div>
+                    )}
+                  </div>
+                )}
                 {status === 'loading'
                   && (
-                    <div id="loading-div">
+                    <div className="loading-div">
                       <div className="btn">Submitting</div>
                       <Image src={gif} alt="loading-icon" width={50} />
                     </div>
@@ -206,10 +212,6 @@ export default function Form(){
             display: grid;
             gap: 5px;
           }
-
-          // #submit-wrapper {
-          //   padding-top: 10px;
-          // }
 
           .text-input {
             width: 80%;
@@ -280,16 +282,21 @@ export default function Form(){
           font-size: 16px;
         }
 
-        #loading-div {
+        .loading-div {
           display: grid;
           grid-template-columns: repeat(2, max-content);
           align-items: center;
+          gap: 20px;
         }
 
         #file-input-wrapper {
           display: grid;
           height: 30px;
           align-items: center;
+        }
+
+        #submit-error {
+          color: red;
         }
 
         `}
