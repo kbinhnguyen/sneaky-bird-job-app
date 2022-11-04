@@ -32,12 +32,16 @@ export default async function handler(req, res) {
     switch (true) {
       case (!['Culinary', 'Carry Out', 'Counter'].includes(position)):
         res.status(400).send('Invalid position');
+        return;
       case (!['Evening', 'Afternoon', 'Morning'].includes(time)):
         res.status(400).send('Invalid time to contact');
+        return;
       case (!firstName || !lastName || !email || !phone):
         res.status(400).send('Missing required field(s)');
-      case (/(.pdf|.docx|.doc)$/.test(fileType)):
+        return;
+      case (resume && !/(.pdf|.docx|.doc)$/.test(fileType)):
         res.status(400).send('Invalid file type');
+        return;
     }
 
     const notionPageObj = {
@@ -51,14 +55,14 @@ export default async function handler(req, res) {
         'd%40%3Bf': {  rich_text: [{ text: { content: lastName } }] },
         'TM%60m': { email },
         'u%5D%7DL': { phone_number: phone },
-        '%3CXYp': { select: { id: time[contactTimeId] } },
-        'nHmD': { select: { id: position[positionId] } },
+        '%3CXYp': { select: { id: contactTimeId[time] } },
+        'nHmD': { select: { id: positionId[position] } },
       },
     };
 
-    if (resume) {
-      notionPageObj.properties['%7CeTc'] = `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${lastName}_${firstName}${fileType}`;
 
+    if (resume) {
+      notionPageObj.properties['%7CeTc'] = { url: `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${lastName}_${firstName}${fileType}` };
       const bucketParams = {
         Bucket: process.env.AWS_S3_RESUME_BUCKET_NAME,
         Key: `${lastName}_${firstName}${fileType}`,
@@ -73,19 +77,24 @@ export default async function handler(req, res) {
           notion.pages.create(notionPageObj),
         ]);
         res.status(200).json({ url: signedUrl });
+        return;
       } catch (e) {
         console.log(e);
         res.status(500).end();
+        return;
       }
     } else {
       try {
         await notion.pages.create(notionPageObj);
         res.status(200).end();
+        return;
       } catch (e) {
         console.log(e);
         res.status(500).end();
+        return;
       }
     }
   }
   res.status(400).send('Invalid request');
+  return;
 }

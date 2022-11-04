@@ -18,7 +18,7 @@ export default function ImagesSlide() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevInd) => (prevInd + 1) % 8)
+      setIndex((prevInd) => (prevInd + 1) % 8);
     }, 4000);
 
     return () => clearInterval(interval);

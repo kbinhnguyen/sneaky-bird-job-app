@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 export default function Form(){
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({ mode: 'onChange' });
   const submitSuccess = async (data) => {
     let inputData = data;
-    if (data.resume) {
+    if (data.resume && data.resume.length > 0) {
       try {
         const fileName = data.resume[0].name;
         const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
@@ -15,7 +15,6 @@ export default function Form(){
         const formData = new FormData();
         formData.append('resume', data.resume[0]);
         const awsRes = await axios.put(url, data.resume[0]);
-        console.log('aws response', awsRes.data);
       } catch (e) {
         console.log(e);
       }
@@ -35,7 +34,7 @@ export default function Form(){
   return (
     <div id="form">
       <div id="form-box">
-        <div>EMPLOYMENT APPLICATION</div>
+        <div id="form-title">EMPLOYMENT APPLICATION</div>
         <form id="form-form"
           onSubmit={handleSubmit(submitSuccess, submitError)}>
           <div className="field">
@@ -122,31 +121,19 @@ export default function Form(){
             <label>
               <div className="label-name">Upload Your Resume</div>
               <input
-                {...register(
-                  'resume',
-                  {
-                    validate: {
-                      quantity: (input) => (input.length === 1),
-                      fileFormat: (input) => ([
-                        'application/pdf',
-                        'application/msword',
-                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                      ].includes(input[0].type)),
-                      size: (input) => (input[0].size <= 10000000),
-                    },
-                  }
-                )}
+                {...register('resume')}
                 name="resume"
                 type="file"
                 multiple={false}
                 accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
-              <div>Accepted file types: pdf, doc, docx.</div>
+              <div className="regular-text"><em>Accepted file types: pdf, doc, docx. Limit: 10 MB.</em></div>
               {errors?.resume && errors?.resume.message}
             </label>
           </div>
+          {console.log(errors)}
           <div id="submit-wrapper">
-            <input type="submit" disabled={!!errors} className="btn" />
+            <input type="submit" disabled={!isValid} className="btn" />
           </div>
         </form>
       </div>
@@ -240,11 +227,22 @@ export default function Form(){
 
         .error {
           color: red;
-          font-size: 14px;
+          font-size: 12px;
         }
 
         .label-name {
-          color: #E48225;
+          color: #007AA4;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .regular-text {
+          font-size: 14px;
+        }
+
+        #form-title {
+          font-family: 'Work Sans', sans-serif;
+          font-size: 36px;
         }
 
         `}

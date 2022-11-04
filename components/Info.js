@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../public/images/logo.svg';
+import logo from '../public/images/logo_tagline.svg';
 
 export default function Info() {
   return (
     <div id="info">
       <div id="logo-section">
-        <Image src={logo} alt="logo" width={500} />
-        <div id="slogan">never ever fried™</div>
+        <Image src={logo} alt="logo" width={500} priority={true} />
       </div>
       <div id="info-content">
         <div id="info-content-detail">
@@ -15,7 +14,10 @@ export default function Info() {
             COMING SOON
           </div>
           <div className="line">
-            QUICK CRAFT CASUAL DINING
+            QUICK CRAFT CASUAL
+          </div>
+          <div className="line">
+            &quot;OVEN-GRILLED GREATNESS&quot;
           </div>
           <div className="line">
             PHOENIX, ARIZONA

@@ -5,16 +5,17 @@ export default function CustomApp({ Component, pageProps }){
       <style jsx global>
         {`
           body {
-            font-family: 'Open Sans';
+            font-family: 'Open Sans', sans-serif;
           }
 
           input {
-            font-family: 'Open Sans';
+            font-family: 'Open Sans', sans-serif;
             font-size: 16px;
           }
 
           .btn {
             display: flex;
+            border: 0;
             border-radius: 10px;
             background: #1A1A1A;
             width: 120px;
@@ -25,10 +26,12 @@ export default function CustomApp({ Component, pageProps }){
             font-family: 'IBM Plex Mono', monospace;
             font-size: 14px;
             transition: transform 250ms ease-in;
+            cursor: pointer;
           }
 
           .btn:disabled {
             background: #CDCDCD;
+            cursor: not-allowed;
           }
 
           a:link {
