@@ -27,9 +27,16 @@ export default function CustomApp({ Component, pageProps }){
             font-size: 14px;
             transition: transform 1s linear;
             cursor: pointer;
+            position: relative;
+            top: 0;
+          }
+
+          .btn:hover {
+            top: -3px;
           }
 
           .btn:disabled {
+            top: 0;
             background: #CDCDCD;
             cursor: not-allowed;
           }

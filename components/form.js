@@ -134,13 +134,15 @@ export default function Form(){
               <div className="field">
                 <label>
                   <div className="label-name">Upload Your Resume</div>
-                  <input
-                    {...register('resume')}
-                    name="resume"
-                    type="file"
-                    multiple={false}
-                    accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  />
+                  <div id="file-input-wrapper">
+                    <input
+                      {...register('resume')}
+                      name="resume"
+                      type="file"
+                      multiple={false}
+                      accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                  </div>
                   <div className="regular-text"><em>Accepted file types: pdf, doc, docx. Limit: 10 MB.</em></div>
                   {errors?.resume && errors?.resume.message}
                 </label>
@@ -205,9 +207,9 @@ export default function Form(){
             gap: 5px;
           }
 
-          #submit-wrapper {
-            padding-top: 15px;
-          }
+          // #submit-wrapper {
+          //   padding-top: 10px;
+          // }
 
           .text-input {
             width: 80%;
@@ -281,6 +283,12 @@ export default function Form(){
         #loading-div {
           display: grid;
           grid-template-columns: repeat(2, max-content);
+          align-items: center;
+        }
+
+        #file-input-wrapper {
+          display: grid;
+          height: 30px;
           align-items: center;
         }
 

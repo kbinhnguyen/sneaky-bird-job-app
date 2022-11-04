@@ -70,15 +70,6 @@ export default function Info() {
             justify-self: right;
           }
 
-          .btn {
-            position: relative;
-            top: 0;
-          }
-
-          .btn:hover {
-            top: -3px;
-          }
-
           .line {
             font-weight: 600;
           }
