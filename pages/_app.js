@@ -25,7 +25,7 @@ export default function CustomApp({ Component, pageProps }){
             justify-content: center;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 14px;
-            transition: transform 250ms ease-in;
+            transition: transform 1s linear;
             cursor: pointer;
           }
 

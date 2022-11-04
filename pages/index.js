@@ -34,7 +34,6 @@ export default function Home() {
             display: grid;
             grid-template-columns: 1fr 500px;
             height: 750px;
-            // overflow: hidden;
           }
         `}
       </style>

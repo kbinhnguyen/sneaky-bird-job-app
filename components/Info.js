@@ -9,26 +9,27 @@ export default function Info() {
         <Image src={logo} alt="logo" width={500} priority={true} />
       </div>
       <div id="info-content">
-        <div id="info-content-detail">
+        <div id="info-content-detail-1">
           <div className="line">
             COMING SOON
           </div>
           <div className="line">
             QUICK CRAFT CASUAL
           </div>
-          <div className="line">
+          <div className="line emphasis">
             &quot;OVEN-GRILLED GREATNESS&quot;
           </div>
-          <div className="line">
-            PHOENIX, ARIZONA
-          </div>
         </div>
-        <div>NOW HIRING</div>
-        <Link href="#form" id="link">
-          <div className="btn">
-            Apply Now
+        <div id="info-content-detail-2">
+          <div id="info-content-detail-2-more">
+            <div className="line">15801 N FRANK LLOYD WRIGHT</div>
+            <div className="line">SCOTTSDALE, ARIZONA</div>
           </div>
-        </Link>
+          <div className="line emphasis">NOW HIRING</div>
+          <Link href="#form" id="link">
+            <div className="btn">Apply Now</div>
+          </Link>
+        </div>
       </div>
       <style jsx>
         {`
@@ -49,24 +50,41 @@ export default function Info() {
             font-size: 20px;
           }
 
-          #info-content-detail {
+          #info-content-detail-1 {
             display: grid;
             justify-items: center;
-            gap: 5px;
           }
 
-          #logo-section {
+          #info-content-detail-2 {
             display: grid;
-            gap: 0;
+            justify-items: center;
+            gap: 20px;
+          }
+
+          #info-content-detail-2-more {
+            display: grid;
+            justify-items: center;
           }
 
           #slogan {
             justify-self: right;
           }
 
+          .btn {
+            position: relative;
+            top: 0;
+          }
+
           .btn:hover {
-            transform: scale(1.2);
-            opacity: 0.85;
+            top: -3px;
+          }
+
+          .line {
+            font-weight: 600;
+          }
+
+          .emphasis {
+            color: #D16600;
           }
         `}
       </style>
