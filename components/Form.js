@@ -21,7 +21,6 @@ export default function Form(){
         await axios.put(url, data.resume[0]);
         setStatus('success');
       } catch (e) {
-        console.log(e);
         setStatus('error');
       }
     } else {
