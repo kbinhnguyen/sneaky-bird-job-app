@@ -187,9 +187,17 @@ export default function Form(){
             border-radius: 10px;
           }
 
+          @media (max-width: 700px) {
+            #form-box {
+              width: 95vw;
+              padding-left: 10px;
+              padding-right: 10px;
+            }
+          }
+
           #form-form {
             display: grid;
-            padding-top: 10px;
+            padding-top: 20px;
             height: max-content;
             width: 100%;
             align-items: center;
@@ -198,7 +206,7 @@ export default function Form(){
           }
 
           #success-content {
-            padding-top: 10px;
+            padding-top: 20px;
             height: max-content;
             width: 100%;
           }

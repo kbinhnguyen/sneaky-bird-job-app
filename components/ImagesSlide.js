@@ -26,7 +26,7 @@ export default function ImagesSlide() {
 
   return (
     <div id="img-wrapper" className="wrapper">
-      <motion.div
+      <motion.div className="wrapper"
         key={index}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1}}
@@ -35,7 +35,8 @@ export default function ImagesSlide() {
         <Image className="image"
           src={imgSrc}
           alt=""
-          width={500}
+          // sizes="(min-width: 701px) 50vw, (max-width: 700px) 100vw"
+          width={700}
           priority={true}
         />
       </motion.div>
@@ -43,14 +44,24 @@ export default function ImagesSlide() {
       <style jsx>
         {`
           #img-wrapper {
-            width: max-content;
-            height: max-content;
-            position: relative;
+            width: 100%;
+            height: 100vh;
             margin: 0 auto;
+            overflow: hidden;
+          }
+          .wrapper {
+            height: 100vh;
           }
 
           #img-wrapper img {
-            position: absolute;
+            object-fit: cover;
+            width: 100%;
+          }
+
+          @media (max-width: 700px) {
+            #img-wrapper {
+              width: 100vw;
+            }
           }
         `}
       </style>

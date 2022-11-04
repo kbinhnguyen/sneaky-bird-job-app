@@ -31,9 +31,16 @@ export default function Home() {
             grid-template-rows: repeat(2, max-content);
           }
           #upper-section {
+            width: 100vw;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             height: 750px;
+          }
+          @media(max-width: 700px) {
+            #upper-section {
+              width: 100vw;
+              grid-template-rows: repeat(2, max-content);
+            }
           }
         `}
       </style>

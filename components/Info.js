@@ -42,6 +42,15 @@ export default function Info() {
             background: #F2DECB;
           }
 
+          @media (max-width: 700px) {
+            #info {
+              width: 100vw;
+              height: max-content;
+              padding-top: 60px;
+              padding-bottom: 60px;
+            }
+          }
+
           #info-content {
             padding-top: 50px;
             display: grid;
