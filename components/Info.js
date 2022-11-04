@@ -6,7 +6,7 @@ export default function Info() {
   return (
     <div id="info">
       <div id="logo-section">
-        <Image src={logo} alt="logo" width={500} priority={true} />
+        <Image className="image" src={logo} alt="logo" fill priority={true} />
       </div>
       <div id="info-content">
         <div id="info-content-detail-1">
@@ -31,66 +31,6 @@ export default function Info() {
           </Link>
         </div>
       </div>
-      <style jsx>
-        {`
-          #info {
-            height: 100%;
-            width: 100%;
-            grid-column: 1 / 2;
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
-            background: #F2DECB;
-          }
-
-          @media (max-width: 700px) {
-            #info {
-              height: max-content;
-              padding-top: 60px;
-              padding-bottom: 60px;
-            }
-          }
-
-          #info-content {
-            padding-top: 50px;
-            display: grid;
-            gap: 30px;
-            justify-items: center;
-            font-size: 20px;
-          }
-
-          #info-content-detail-1 {
-            display: grid;
-            justify-items: center;
-          }
-
-          #info-content-detail-2 {
-            display: grid;
-            justify-items: center;
-            gap: 20px;
-          }
-
-          #info-content-detail-2-more {
-            display: grid;
-            justify-items: center;
-          }
-
-          #slogan {
-            justify-self: right;
-          }
-
-          .line {
-            font-weight: 600;
-          }
-
-          .emphasis {
-            color: #D16600;
-          }
-        `}
-      </style>
     </div>
   );
 }

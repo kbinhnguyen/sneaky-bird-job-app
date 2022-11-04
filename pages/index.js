@@ -24,27 +24,6 @@ export default function Home() {
         <ImagesSlide />
       </div>
       <Form />
-      <style jsx>
-        {`
-          #main {
-            display: grid;
-            grid-template-rows: repeat(2, max-content);
-          }
-          #upper-section {
-            position: relative;
-            width: 100vw;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            height: 100vh;
-          }
-          @media(max-width: 700px) {
-            #upper-section {
-              width: 100vw;
-              grid-template-rows: repeat(2, max-content);
-            }
-          }
-        `}
-      </style>
     </div>
   )
 }

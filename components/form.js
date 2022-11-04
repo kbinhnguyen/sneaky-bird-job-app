@@ -181,6 +181,7 @@ export default function Form(){
 
           #form-box {
             top: 60px;
+            bottom: 60px;
             background: white;
             position: absolute;
             width: 60%;
