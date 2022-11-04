@@ -36,6 +36,8 @@ export default async function handler(req, res) {
         res.status(400).send('Invalid time to contact');
       case (!firstName || !lastName || !email || !phone):
         res.status(400).send('Missing required field(s)');
+      case (/(.pdf|.docx|.doc)$/.test(fileType)):
+        res.status(400).send('Invalid file type');
     }
 
     const notionPageObj = {
@@ -49,17 +51,16 @@ export default async function handler(req, res) {
         'd%40%3Bf': {  rich_text: [{ text: { content: lastName } }] },
         'TM%60m': { email },
         'u%5D%7DL': { phone_number: phone },
-        // '%7CeTc': { url: 'http://paycollected.com' },
-        '%3CXYp': { select: { id: time[contactTimeId] } }, // contact time
-        'nHmD': { select: { id: position[positionId] } }, // position
+        '%3CXYp': { select: { id: time[contactTimeId] } },
+        'nHmD': { select: { id: position[positionId] } },
       },
     };
 
     if (resume) {
-      notionPageObj.properties['%7CeTc'] = null;
+      notionPageObj.properties['%7CeTc'] = `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${lastName}_${firstName}${fileType}`;
 
       const bucketParams = {
-        Bucket: 'sneakybird-resume',
+        Bucket: process.env.AWS_S3_RESUME_BUCKET_NAME,
         Key: `${lastName}_${firstName}${fileType}`,
         Body: '',
       };

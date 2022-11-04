@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
@@ -5,12 +6,11 @@ export default function Form(){
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const submitSuccess = async (data) => {
     let inputData = data;
-    console.log(data.resume[0].name);
     if (data.resume) {
       try {
         const fileName = data.resume[0].name;
         const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
-        const response = await axios.post('/api/apply', {...data, resume: true, fileType });
+        const response = await axios.post('/api/apply', { ...data, resume: true, fileType });
         const { url } = response.data;
         const formData = new FormData();
         formData.append('resume', data.resume[0]);
@@ -19,13 +19,13 @@ export default function Form(){
       } catch (e) {
         console.log(e);
       }
+    } else {
+      try {
+        await axios.post('/api/apply', { ...data, resume: false });
+      } catch (e) {
+        console.log(e);
+      }
     }
-
-    // axios.post('/api/apply', formData, {
-    //   // headers: {
-    //   //   'Content-Type': 'multipart/form-data'
-    //   // },
-    // });
   };
 
   const submitError = (err) => {
@@ -37,7 +37,6 @@ export default function Form(){
       <div id="form-box">
         <div>EMPLOYMENT APPLICATION</div>
         <form id="form-form"
-          // encType="multipart/form-data"
           onSubmit={handleSubmit(submitSuccess, submitError)}>
           <div className="field">
             <label>
