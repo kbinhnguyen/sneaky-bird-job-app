@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       case (!['Evening', 'Afternoon', 'Morning'].includes(time)):
         res.status(400).send('Invalid time to contact');
         return;
-      case (!firstName || !lastName || !email || !phone):
+      case (!inputFirstName || !inputLastName || !inputEmail || !inputPhone):
         res.status(400).send('Missing required field(s)');
         return;
       case (resume && !/(.pdf|.docx|.doc)$/.test(fileType)):
