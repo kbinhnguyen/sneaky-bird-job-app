@@ -28,7 +28,16 @@ const contactTimeId = {
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { firstName, lastName, email, phone, position, time, resume, fileType } = req.body;
+    const {
+      firstName: inputFirstName,
+      lastName: inputLastName,
+      email: inputEmail,
+      phone: inputPhone,
+      position,
+      time,
+      resume,
+      fileType
+    } = req.body;
     switch (true) {
       case (!['Culinary', 'Carry Out', 'Counter'].includes(position)):
         res.status(400).send('Invalid position');
@@ -44,6 +53,12 @@ export default async function handler(req, res) {
         return;
     }
 
+    const [firstName, lastName, email, phone] = [
+      inputFirstName,
+      inputLastName,
+      inputEmail,
+      inputPhone
+    ].map((input) => input.trim());
     const notionPageObj = {
       parent: {
         type: 'database_id',
@@ -65,7 +80,7 @@ export default async function handler(req, res) {
       notionPageObj.properties['%7CeTc'] = { url: `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${lastName}_${firstName}${fileType}` };
       const bucketParams = {
         Bucket: process.env.AWS_S3_RESUME_BUCKET_NAME,
-        Key: `${lastName}_${firstName}${fileType}`,
+        Key: `${lastName}_${firstName}_${Date.now()}${fileType}`,
         Body: '',
       };
 
