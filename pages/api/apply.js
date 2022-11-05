@@ -77,10 +77,11 @@ export default async function handler(req, res) {
 
 
     if (resume) {
-      notionPageObj.properties['%7CeTc'] = { url: `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${lastName}_${firstName}${fileType}` };
+      const fileNameStr = `${lastName}_${firstName}_${Date.now()}${fileType}`;
+      notionPageObj.properties['%7CeTc'] = { url: `${process.env.AWS_S3_RESUME_BUCKET_DOMAIN}/${fileNameStr}` };
       const bucketParams = {
         Bucket: process.env.AWS_S3_RESUME_BUCKET_NAME,
-        Key: `${lastName}_${firstName}_${Date.now()}${fileType}`,
+        Key: fileNameStr,
         Body: '',
       };
 
