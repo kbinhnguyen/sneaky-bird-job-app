@@ -280,6 +280,8 @@ span {
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
   appearance: none;
   border: 0;
   width: 100%;
@@ -288,6 +290,8 @@ select {
   background-position: 98%;
   background-repeat: no-repeat;
   background-image: url('https://www.svgrepo.com/show/12432/down-chevron.svg');
+  background-color: white;
+  color: black;
 }
 
 select:focus {
