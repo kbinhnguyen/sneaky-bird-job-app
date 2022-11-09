@@ -43,6 +43,10 @@ input {
   cursor: not-allowed;
 }
 
+.inactive-btn:hover {
+  top: 0;
+}
+
 input[type="submit"] {
   height: 100%;
   width: 100%;
@@ -199,8 +203,6 @@ a:visited {
 }
 
 #form-box {
-  /* top: 60px; */
-  /* bottom: 60px; */
   background: white;
   position: absolute;
   width: 60%;
