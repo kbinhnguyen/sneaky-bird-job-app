@@ -192,7 +192,7 @@ a:visited {
 #form {
   position: relative;
   width: 100vw;
-  height: 1050px;
+  height: 900px;
   padding-bottom: 70px;
   display: grid;
   align-content: center;
@@ -207,13 +207,16 @@ a:visited {
   position: absolute;
   width: 60%;
   height: max-content;
-  padding: 60px;
+  padding: 50px 60px;
   border: 3px solid black;
   border-radius: 10px;
   height: max-content;
 }
 
 @media (max-width: 700px) {
+  #form {
+    height: 950px;
+  }
   #form-title {
     padding-left: 50px;
   }
@@ -231,11 +234,11 @@ a:visited {
 
 #form-form {
   display: grid;
-  padding-top: 30px;
+  padding-top: 20px;
   height: max-content;
   width: 100%;
   grid-template-rows: repeat(8, min-content);
-  gap: 30px;
+  gap: 20px;
 }
 
 #success-content {
@@ -252,7 +255,7 @@ a:visited {
 label {
   display: grid;
   width: 100%;
-  gap: 15px;
+  gap: 10px;
   grid-template-columns: 1fr;
 }
 
