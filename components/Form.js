@@ -14,8 +14,7 @@ export default function Form(){
       try {
         const fileName = data.resume[0].name;
         const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
-        const response = await axios.post('/api/apply', { ...data, resume: true, fileType });
-        const { url } = response.data;
+        const { data: { url } } = await axios.post('/api/apply', { ...data, resume: true, fileType });
         const formData = new FormData();
         formData.append('resume', data.resume[0]);
         await axios.put(url, data.resume[0]);
@@ -146,7 +145,14 @@ export default function Form(){
               <div id="submit-wrapper">
                 {status !== 'loading' && (
                   <div className="loading-div">
-                    <input type="submit" disabled={!isValid} className="btn" />
+                    {!isValid && (
+                      <div className="btn inactive-btn">Submit</div>
+                    )}
+                    {isValid && (
+                      <div className="btn">
+                        <input type="submit" inactive={status === 'loading'} />
+                      </div>
+                    )}
                     {status === 'error' && (
                       <div id="submit-error">Submission was unsuccessful.<br />Please try again later!</div>
                     )}
@@ -164,162 +170,6 @@ export default function Form(){
           </>
         )}
       </div>
-      <style jsx>
-        {`
-          #form {
-            position: relative;
-            width: 100vw;
-            height: 900px;
-            padding-top: 70px;
-            padding-bottom: 70px;
-            display: grid;
-            align-content: center;
-            justify-content: center;
-            justify-items: center;
-            background: #E48225;
-          }
-
-          #form-box {
-            top: 60px;
-            bottom: 60px;
-            background: white;
-            position: absolute;
-            width: 60%;
-            padding: 60px;
-            border: 3px solid black;
-            border-radius: 10px;
-          }
-
-          @media (max-width: 700px) {
-            #form-title {
-              padding-left: 50px;
-            }
-            #form-box {
-              width: 95%;
-              padding-left: 10px;
-              padding-right: 10px;
-            }
-
-            #form-form {
-              padding-left: 50px;
-              width: 100%;
-            }
-          }
-
-          #form-form {
-            display: grid;
-            padding-top: 20px;
-            height: max-content;
-            width: 100%;
-            align-items: center;
-            grid-template-rows: repeat(8, 1fr);
-            gap: 15px;
-          }
-
-          #success-content {
-            padding-top: 20px;
-            height: max-content;
-            width: 100%;
-          }
-
-          .field {
-            padding-top: 1px;
-            width: 100%;
-          }
-
-          label {
-            display: grid;
-            gap: 5px;
-          }
-
-          .text-input {
-            width: 80%;
-            cursor: text;
-            border-bottom: 1px solid #222;
-          }
-
-          .text-input-input {
-            width: 100%;
-            border: 0;
-            background: transparent;
-            padding-bottom: 8px;
-          }
-
-          input:focus {
-            outline: none;
-          }
-
-          span {
-            color: red;
-          }
-
-          select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            border: 0;
-            width: 100%;
-            cursor: pointer;
-            background-size: 10px;
-            background-position: 98%;
-            background-repeat: no-repeat;
-            background-image: url('https://www.svgrepo.com/show/12432/down-chevron.svg');
-         }
-
-         select:focus {
-          outline: none;
-        }
-
-        .select-input {
-          width: 80%;
-          border-bottom: 1px solid #222;
-          padding-bottom: 8px;
-        }
-
-        .error {
-          color: red;
-          font-size: 12px;
-        }
-
-        .label-name {
-          color: #007AA4;
-          font-size: 14px;
-          font-weight: 600;
-        }
-
-        .regular-text {
-          font-size: 14px;
-        }
-
-        #form-title {
-          font-family: 'Work Sans', sans-serif;
-          font-size: 30px;
-        }
-
-        select {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 16px;
-        }
-
-        .loading-div {
-          display: grid;
-          grid-template-columns: repeat(2, max-content);
-          align-items: center;
-          gap: 20px;
-        }
-
-        #file-input-wrapper {
-          display: grid;
-          height: 30px;
-          align-items: center;
-        }
-
-        #submit-error {
-          color: red;
-        }
-
-        `}
-      </style>
     </div>
   );
 }
