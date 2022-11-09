@@ -37,10 +37,10 @@ export default function ImagesSlide() {
           transition={{ duration: 1.5 }}
         >
           <Image
+            id="main-img"
             src={imgSrc}
             alt=""
             priority={true}
-            objectFit="cover"
             fill
           />
         </motion.div>

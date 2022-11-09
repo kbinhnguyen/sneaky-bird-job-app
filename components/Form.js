@@ -142,7 +142,7 @@ export default function Form(){
                   {errors?.resume && errors?.resume.message}
                 </label>
               </div>
-              <div id="submit-wrapper">
+              <div>
                 {status !== 'loading' && (
                   <div className="loading-div">
                     {!isValid && (
