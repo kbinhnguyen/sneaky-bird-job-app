@@ -188,22 +188,23 @@ a:visited {
 #form {
   position: relative;
   width: 100vw;
-  height: 900px;
-  padding-top: 70px;
+  height: 1050px;
   padding-bottom: 70px;
   display: grid;
   align-content: center;
+  align-items: center;
   justify-content: center;
   justify-items: center;
   background: #E48225;
 }
 
 #form-box {
-  top: 60px;
-  bottom: 60px;
+  /* top: 60px; */
+  /* bottom: 60px; */
   background: white;
   position: absolute;
   width: 60%;
+  height: max-content;
   padding: 60px;
   border: 3px solid black;
   border-radius: 10px;
@@ -228,10 +229,10 @@ a:visited {
 
 #form-form {
   display: grid;
-  padding-top: 20px;
+  padding-top: 30px;
   height: max-content;
   width: 100%;
-  grid-template-rows: repeat(8, max-content);
+  grid-template-rows: repeat(8, min-content);
   gap: 30px;
 }
 
@@ -294,7 +295,7 @@ select:focus {
 .select-input {
   width: 80%;
   border-bottom: 1px solid #222;
-  padding-bottom: 8px;
+  padding-bottom: 9px;
 }
 
 .error {
@@ -326,6 +327,7 @@ select {
 
 .loading-div {
   display: grid;
+  height: max-content;
   grid-template-columns: repeat(2, max-content);
   align-items: center;
   gap: 20px;
