@@ -18,7 +18,7 @@ export default function ImagesSlide() {
   return (
     <div id="img-wrapper">
       <div id="another-wrapper">
-          <Image className="main-img" id="last-img" priority={true} src={loaded ? tenth : first} alt="" fill />
+          <Image className="main-img" priority={true} src={loaded ? tenth : first} alt="" fill />
           <Image className="main-img" src={loaded ? ninth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? eighth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? seventh : first} priority={true} alt="" fill />
@@ -27,7 +27,7 @@ export default function ImagesSlide() {
           <Image className="main-img" src={loaded ? fourth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? third : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? second : first} priority={true} alt="" fill />
-          <Image className="main-img" id="first-img" src={first} onLoadingComplete={() => { setLoaded(true); }} alt="" priority={true} fill />
+          <Image className="main-img" src={first} onLoadingComplete={() => { setLoaded(true); }} alt="" priority={true} fill />
       </div>
     </div>
   );

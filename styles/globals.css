@@ -376,10 +376,6 @@ select {
   animation-duration: 40s;
 }
 
-/* #first-img {
-  z-index: 100;
-} */
-
 #another-wrapper img:nth-of-type(1) {
   animation-delay: 36s;
 }
