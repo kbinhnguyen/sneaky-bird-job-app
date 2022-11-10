@@ -377,43 +377,43 @@ select {
 }
 
 #another-wrapper img:nth-of-type(1) {
-  animation-delay: 36s;
+  animation-delay: 38s;
 }
 
 #another-wrapper img:nth-of-type(2) {
-  animation-delay: 32s;
+  animation-delay: 34s;
 }
 
 #another-wrapper img:nth-of-type(3) {
-  animation-delay: 28s;
+  animation-delay: 30s;
 }
 
 #another-wrapper img:nth-of-type(4) {
-  animation-delay: 24s;
+  animation-delay: 26s;
 }
 
 #another-wrapper img:nth-of-type(5) {
-  animation-delay: 20s;
+  animation-delay: 22s;
 }
 
 #another-wrapper img:nth-of-type(6) {
-  animation-delay: 16s;
+  animation-delay: 18s;
 }
 
 #another-wrapper img:nth-of-type(7) {
-  animation-delay: 12s;
+  animation-delay: 14s;
 }
 
 #another-wrapper img:nth-of-type(8) {
-  animation-delay: 8s;
+  animation-delay: 10s;
 }
 
 #another-wrapper img:nth-of-type(9) {
-  animation-delay: 4s;
+  animation-delay: 6s;
 }
 
 #another-wrapper img:nth-of-type(10) {
-  animation-delay: 0s;
+  animation-delay: 2s;
 }
 
 @keyframes fadeInOut {

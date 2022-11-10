@@ -27,7 +27,7 @@ export default function ImagesSlide() {
           <Image className="main-img" src={loaded ? fourth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? third : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? second : first} priority={true} alt="" fill />
-          <Image className="main-img" src={first} onLoadingComplete={() => { setLoaded(true); }} alt="" priority={true} fill />
+          <Image className="main-img" src={first} onLoadingComplete={() => { setLoaded(true); }} priority={true} alt="" fill />
       </div>
     </div>
   );
