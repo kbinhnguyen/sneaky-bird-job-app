@@ -18,7 +18,7 @@ export default function ImagesSlide() {
   return (
     <div id="img-wrapper">
       <div id="another-wrapper">
-          <Image className="main-img" priority={true} src={loaded ? tenth : first} alt="" fill />
+          <Image className="main-img" src={loaded ? tenth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? ninth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? eighth : first} priority={true} alt="" fill />
           <Image className="main-img" src={loaded ? seventh : first} priority={true} alt="" fill />
