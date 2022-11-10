@@ -9,27 +9,27 @@ export default function Form(){
   const [status, setStatus] = useState(null);
 
   const submitSuccess = async (data) => {
-    // setStatus('loading');
-    // if (data.resume && data.resume.length > 0) {
-    //   try {
-    //     const fileName = data.resume[0].name;
-    //     const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
-    //     const { data: { url } } = await axios.post('/api/apply', { ...data, resume: true, fileType });
-    //     const formData = new FormData();
-    //     formData.append('resume', data.resume[0]);
-    //     await axios.put(url, data.resume[0]);
+    setStatus('loading');
+    if (data.resume && data.resume.length > 0) {
+      try {
+        const fileName = data.resume[0].name;
+        const fileType = fileName.match(/(.pdf|.docx|.doc)$/)[0];
+        const { data: { url } } = await axios.post('/api/apply', { ...data, resume: true, fileType });
+        const formData = new FormData();
+        formData.append('resume', data.resume[0]);
+        await axios.put(url, data.resume[0]);
         setStatus('success');
-    //   } catch (e) {
-    //     setStatus('error');
-    //   }
-    // } else {
-    //   try {
-    //     await axios.post('/api/apply', { ...data, resume: false });
-    //     setStatus('success');
-    //   } catch (e) {
-    //     setStatus('error');
-    //   }
-    // }
+      } catch (e) {
+        setStatus('error');
+      }
+    } else {
+      try {
+        await axios.post('/api/apply', { ...data, resume: false });
+        setStatus('success');
+      } catch (e) {
+        setStatus('error');
+      }
+    }
   };
 
 

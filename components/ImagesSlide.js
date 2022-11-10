@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
-import { motion } from 'framer-motion';
+// import { useState, useEffect, useMemo } from 'react';
+// import { motion } from 'framer-motion';
 import Image from 'next/image';
 import first from '../public/images/SMPM3255.jpg';
 import second from '../public/images/SMPS2666.jpg';
@@ -14,36 +14,19 @@ import tenth from '../public/images/SMPS2726.jpg';
 
 
 export default function ImagesSlide() {
-  const srcs = useMemo(() => [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth], []);
-  const [index, setIndex] = useState(0);
-  const imgSrc = useMemo(() => (srcs[index]), [srcs, index]);
-
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevInd) => (prevInd + 1) % 10);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [index]);
-
   return (
     <div id="img-wrapper">
       <div id="another-wrapper">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1}}
-          transition={{ duration: 1.5 }}
-        >
-          <Image
-            id="main-img"
-            src={imgSrc}
-            alt=""
-            priority={true}
-            fill
-          />
-        </motion.div>
+          <Image className="main-img" src={first} alt="" priority={true} fill />
+          <Image className="main-img" src={second} alt="" priority={true} fill />
+          <Image className="main-img" src={third} alt="" priority={true} fill />
+          <Image className="main-img" src={fourth} alt="" priority={true} fill />
+          <Image className="main-img" src={fifth} alt="" priority={true} fill />
+          <Image className="main-img" src={sixth} alt="" priority={true} fill />
+          <Image className="main-img" src={seventh} alt="" priority={true} fill />
+          <Image className="main-img" src={eighth} alt="" priority={true} fill />
+          <Image className="main-img" src={ninth} alt="" priority={true} fill />
+          <Image className="main-img" src={tenth} alt="" priority={true} fill />
       </div>
     </div>
   )
