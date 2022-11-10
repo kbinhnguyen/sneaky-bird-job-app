@@ -205,11 +205,9 @@ a:visited {
   position: relative;
   width: 100vw;
   height: 1000px;
-  display: grid;
-  align-content: center;
+  display: flex;
   align-items: center;
   justify-content: center;
-  justify-items: center;
   background: #E48225;
 }
 
@@ -240,8 +238,6 @@ a:visited {
 
 #success-content {
   padding-top: 20px;
-  height: max-content;
-  /* width: 100%; */
 }
 
 @media (max-width: 700px) {

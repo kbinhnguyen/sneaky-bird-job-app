@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import Image from 'next/image';
 import axios from 'axios';
@@ -7,6 +7,12 @@ import gif from '../public/icons/Spinner.gif';
 export default function Form(){
   const { register, handleSubmit, formState: { errors, isValid } } = useForm({ mode: 'onChange' });
   const [status, setStatus] = useState(null);
+  const [offsetTop, setOffsetTop] = useState(0);
+
+  useEffect(() => {
+    const formBox = document.getElementById('form-box');
+    setOffsetTop(formBox.offsetTop);
+  }, []);
 
   const submitSuccess = async (data) => {
     setStatus('loading');
@@ -34,8 +40,8 @@ export default function Form(){
 
 
   return (
-    <div id="form" style={{ height: status === 'success' ? '300px' : 'default' }}>
-      <div id="form-box">
+    <div id="form" style={{ alignItems: status === 'success' ? 'start' : 'default' }}>
+      <div id="form-box" style={{ top: status === 'success' ?  `${offsetTop}px` : 'default' }}>
         {status === 'success' && (
           <>
             <div id="form-title">APPLICATION SUBMITTED</div>
@@ -148,7 +154,7 @@ export default function Form(){
                     )}
                     {isValid && (
                       <div className="btn">
-                        <input type="submit" inactive={status === 'loading'} />
+                        <input type="submit" inactive={(status === 'loading').toString()} />
                       </div>
                     )}
                     {status === 'error' && (
