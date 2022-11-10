@@ -171,7 +171,7 @@ a:visited {
     width: 100vw;
     height: max-content;
     grid-template-columns: 1fr;
-    grid-template-rows: max-content;
+    grid-template-rows: repeat(2, max-content);
     display: grid;
   }
 
@@ -186,10 +186,19 @@ a:visited {
   #info {
     width: 100vw;
     height: 500px;
-    padding-top: 60px;
     padding-bottom: 60px;
     position: relative;
     grid-row: 1 / 2;
+
+  }
+
+  #logo-section {
+    top: 10px;
+    height: 80%;
+  }
+
+  #info-content {
+    height: max-content;
   }
 }
 
@@ -221,9 +230,11 @@ a:visited {
   #form {
     height: 950px;
   }
+
   #form-title {
     padding-left: 50px;
   }
+
   #form-box {
     width: 95%;
     padding-left: 10px;
