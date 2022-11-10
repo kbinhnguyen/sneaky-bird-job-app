@@ -179,7 +179,7 @@ a:visited {
     background: #F2DECB;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    height: 1000px;
+    height: 100vh;
     position: relative;
   }
 
@@ -189,7 +189,6 @@ a:visited {
     padding-bottom: 60px;
     position: relative;
     grid-row: 1 / 2;
-
   }
 
   #logo-section {
@@ -205,8 +204,7 @@ a:visited {
 #form {
   position: relative;
   width: 100vw;
-  height: 900px;
-  padding-bottom: 70px;
+  height: 1000px;
   display: grid;
   align-content: center;
   align-items: center;
@@ -223,15 +221,36 @@ a:visited {
   padding: 50px 60px;
   border: 3px solid black;
   border-radius: 10px;
+}
+
+#form-form {
+  display: grid;
+  padding-top: 20px;
   height: max-content;
+  width: 80%;
+  grid-template-rows: repeat(8, min-content);
+  gap: 20px;
+}
+
+#form-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30px;
+  height: max-content;
+}
+
+#success-content {
+  padding-top: 20px;
+  height: max-content;
+  /* width: 100%; */
 }
 
 @media (max-width: 700px) {
   #form {
-    height: 950px;
+    height: 935px;
   }
 
   #form-title {
+    padding-left: 50px;
     padding-left: 50px;
   }
 
@@ -243,23 +262,37 @@ a:visited {
 
   #form-form {
     padding-left: 50px;
-    width: 80%;
+  }
+
+  #success-content {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
-#form-form {
-  display: grid;
-  padding-top: 20px;
-  height: max-content;
-  width: 100%;
-  grid-template-rows: repeat(8, min-content);
-  gap: 20px;
-}
+@media (max-width: 500px) {
+  #form-title {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
-#success-content {
-  padding-top: 20px;
-  height: max-content;
-  width: 100%;
+  #form-box {
+    width: 95%;
+    padding: 35px 10px;
+  }
+
+  #form-form {
+    padding-left: 30px;
+  }
+
+  #success-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #form {
+    height: 950px;
+  }
 }
 
 .field {
@@ -275,7 +308,7 @@ label {
 }
 
 .text-input {
-  width: 80%;
+  width: 100%;
   cursor: text;
   border-bottom: 1px solid #222;
 }
@@ -317,7 +350,7 @@ select:focus {
 }
 
 .select-input {
-  width: 80%;
+  width: 100%;
   border-bottom: 1px solid #222;
   padding-bottom: 9px;
 }
@@ -336,12 +369,6 @@ select:focus {
 
 .regular-text {
   font-size: 14px;
-}
-
-#form-title {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 30px;
-  height: max-content;
 }
 
 select {
