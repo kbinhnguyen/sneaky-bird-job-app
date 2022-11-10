@@ -358,12 +358,6 @@ select {
   padding-bottom: 10px;
 }
 
-#file-input-wrapper {
-  display: grid;
-  height: 30px;
-  align-items: center;
-}
-
 #submit-error {
   color: red;
 }

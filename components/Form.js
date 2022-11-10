@@ -129,7 +129,6 @@ export default function Form(){
               <div className="field">
                 <label>
                   <div className="label-name">Upload Your Resume</div>
-                  <div id="file-input-wrapper">
                     <input
                       {...register('resume')}
                       name="resume"
@@ -137,7 +136,6 @@ export default function Form(){
                       multiple={false}
                       accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     />
-                  </div>
                   <div className="regular-text"><em>Accepted file types: pdf, doc, docx. Limit: 10 MB.</em></div>
                   {errors?.resume && errors?.resume.message}
                 </label>
