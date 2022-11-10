@@ -6,7 +6,7 @@ import ImagesSlide from '../components/ImagesSlide.js';
 export default function Home() {
   useEffect(() => {
     document.querySelectorAll('a').forEach(anchor => {
-      anchor.addEventListener('click', () => {
+      anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const elementId = anchor.getAttribute('href').slice(1);
         const element = document.querySelector(elementId);
