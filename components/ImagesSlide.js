@@ -1,5 +1,4 @@
-// import { useState, useEffect, useMemo } from 'react';
-// import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Image from 'next/image';
 import first from '../public/images/SMPM3255.jpg';
 import second from '../public/images/SMPS2666.jpg';
@@ -14,20 +13,22 @@ import tenth from '../public/images/SMPS2726.jpg';
 
 
 export default function ImagesSlide() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div id="img-wrapper">
       <div id="another-wrapper">
-          <Image className="main-img" src={first} alt="" priority={true} fill />
-          <Image className="main-img" src={second} alt="" priority={true} fill />
-          <Image className="main-img" src={third} alt="" priority={true} fill />
-          <Image className="main-img" src={fourth} alt="" priority={true} fill />
-          <Image className="main-img" src={fifth} alt="" priority={true} fill />
-          <Image className="main-img" src={sixth} alt="" priority={true} fill />
-          <Image className="main-img" src={seventh} alt="" priority={true} fill />
-          <Image className="main-img" src={eighth} alt="" priority={true} fill />
-          <Image className="main-img" src={ninth} alt="" priority={true} fill />
-          <Image className="main-img" src={tenth} alt="" priority={true} fill />
+          <Image className="main-img" id="last-img" priority={true} src={loaded ? tenth : first} alt="" fill />
+          <Image className="main-img" src={loaded ? ninth : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? eighth : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? seventh : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? sixth : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? fifth : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? fourth : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? third : first} priority={true} alt="" fill />
+          <Image className="main-img" src={loaded ? second : first} priority={true} alt="" fill />
+          <Image className="main-img" id="first-img" src={first} onLoadingComplete={() => { setLoaded(true); }} alt="" priority={true} fill />
       </div>
     </div>
-  )
+  );
 }

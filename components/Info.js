@@ -6,7 +6,7 @@ export default function Info() {
   return (
     <div id="info">
       <div id="logo-section">
-        <Image className="image" src={logo} alt="logo" fill priority={true} />
+        <Image className="image" src={logo} alt="logo" fill />
       </div>
       <div id="info-content">
         <div id="info-content-detail-1">
