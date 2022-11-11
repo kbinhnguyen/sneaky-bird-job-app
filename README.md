@@ -6,23 +6,25 @@ Placeholder website for a modern eatery prior to launching of its official site.
   - Showcasing a set of 10 featured images with the displayed image changing at a specified time interval.
   - A form that is a job application, with file upload capability for résumés.
 - Backend:
-  - Accessibility of the data persistence layer from form submission for the project client whose background is not technical.
+  - Accessibility of the data persistence layer for the project client whose background is not technical.
   - Progammatic file uploads to cloud storage.
 - Timeline: 4 full days for development
 
 ## Screenshots
 ### Demo video
-![Demo video](https://i.imgur.com/ndYy4uU.gif)
+![Demo video](https://i.imgur.com/JO0fotZ.gif)
 ### Desktop
 ![Desktop1](https://i.imgur.com/FctuGVv.png)
 ![Desktop2](https://i.imgur.com/zRE4GA7.png)
 ![Desktop3](https://i.imgur.com/szI3ZAj.png)
 ![Desktop4](https://i.imgur.com/E6KW5eN.png)
 ### Mobile
-![Mobile1](https://i.imgur.com/KnczUs8.jpg)
-![Mobile2](https://i.imgur.com/nAT4Otu.png)
-![Mobile3](https://i.imgur.com/OchgmiT.png)
-![Mobile4](https://i.imgur.com/MKXBbYv.png)
+<div align="center" width="100%">
+  <img src="https://i.imgur.com/KnczUs8.jpg" />
+  <img src="https://i.imgur.com/nAT4Otu.png" />
+  <img src="https://i.imgur.com/OchgmiT.png" />
+  <img src="https://i.imgur.com/MKXBbYv.png" />
+</div>
 
 ## Tech stack and approach:
 ### Frontend
