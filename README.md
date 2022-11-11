@@ -26,7 +26,7 @@ Placeholder website for a modern eatery prior to launching of its official site.
   <img src="https://i.imgur.com/MKXBbYv.png" width="20%" />
 </div>
 
-## Tech stack and approach:
+## Tech stack and approach
 ### Frontend
 - [NextJS](https://nextjs.org/) was the frontend framework of choice because it:
   - builds on React - the frontend technology I’m most familiar with.
