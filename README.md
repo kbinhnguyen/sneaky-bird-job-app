@@ -12,7 +12,7 @@ Placeholder website for a modern eatery prior to launching of its official site.
 
 ## Screenshots
 ### Demo video
-![Demo video](https://i.imgur.com/gY5SVAh.gif)
+![Demo video](https://i.imgur.com/ebrDWB1.gif)
 ### Desktop
 ![Desktop1](https://i.imgur.com/FctuGVv.png)
 ![Desktop2](https://i.imgur.com/zRE4GA7.png)
@@ -33,6 +33,7 @@ Placeholder website for a modern eatery prior to launching of its official site.
 - supports server-side rendering by default, which is great for SEO for a static site like this.
 - removes the hassle of setting up Babel and Webpack for React.
 - removes the hassle of setting up my own Express server, especially for such a small API, through Next’s `api` routes.
+
 All of these factors enabled me to write code that I could feel confident in, in the shortest amount of time possible given the fast-approaching project deadline.
 
 2. State management of form via [React Hook Form](https://react-hook-form.com/).
