@@ -11,8 +11,18 @@ Placeholder website for a modern eatery prior to launching of its official site.
 - Timeline: 4 full days for development
 
 ## Screenshots
-
-
+### Demo video
+![Demo video](https://i.imgur.com/ndYy4uU.gif)
+### Desktop
+![Desktop1](https://i.imgur.com/FctuGVv.png)
+![Desktop2](https://i.imgur.com/zRE4GA7.png)
+![Desktop3](https://i.imgur.com/szI3ZAj.png)
+![Desktop4](https://i.imgur.com/E6KW5eN.png)
+### Mobile
+![Mobile1](https://i.imgur.com/KnczUs8.jpg)
+![Mobile2](https://i.imgur.com/nAT4Otu.png)
+![Mobile3](https://i.imgur.com/OchgmiT.png)
+![Mobile4](https://i.imgur.com/MKXBbYv.png)
 
 ## Tech stack and approach:
 ### Frontend
@@ -27,7 +37,7 @@ All of these factors enabled me to write code that I could feel confident in, in
 
 3. CSS keyframes animation for images slideshow.
 
-### Backend & DevOps
+### Backend
 1. AWS S3 for cloud storage of file uploads.
 - Approach: When the backend gets a POST request from the frontend, the backend will call AWS API with the appropriate IAM credentials to obtain an ephemeral pre-signed URL link pointing to a specific object in the S3 bucket. The URL will then be passed back to the frontend, and the frontend will upload the file directly to AWS S3 via a PUT request to the endpoint that is the pre-signed URL.
 - Advantages: The backend does not have to process the files, and no unnecessary bandwidth is wasted uploading these files in two trips each (frontend to backend, then backend to cloud storage).
