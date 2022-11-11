@@ -12,7 +12,7 @@ Placeholder website for a modern eatery prior to launching of its official site.
 
 ## Screenshots
 ### Demo video
-![Demo video](https://i.imgur.com/5As9mwf.gif)
+![Demo video](https://i.imgur.com/gY5SVAh.gif)
 ### Desktop
 ![Desktop1](https://i.imgur.com/FctuGVv.png)
 ![Desktop2](https://i.imgur.com/zRE4GA7.png)
@@ -20,10 +20,10 @@ Placeholder website for a modern eatery prior to launching of its official site.
 ![Desktop4](https://i.imgur.com/E6KW5eN.png)
 ### Mobile
 <div align="center" width="100%">
-  <img src="https://i.imgur.com/KnczUs8.jpg" width="25%" />
-  <img src="https://i.imgur.com/nAT4Otu.png" width="25%" />
-  <img src="https://i.imgur.com/OchgmiT.png" width="25%" />
-  <img src="https://i.imgur.com/MKXBbYv.png" width="25%" />
+  <img src="https://i.imgur.com/KnczUs8.jpg" width="20%" />
+  <img src="https://i.imgur.com/nAT4Otu.png" width="20%" />
+  <img src="https://i.imgur.com/OchgmiT.png" width="20%" />
+  <img src="https://i.imgur.com/MKXBbYv.png" width="20%" />
 </div>
 
 ## Tech stack and approach:
