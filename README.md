@@ -7,7 +7,7 @@ Placeholder website for a modern eatery prior to launching of its official site.
   - A form that is a job application, with file upload capability for résumés.
 - Backend:
   - Accessibility of the data persistence layer for the project client whose background is not technical.
-  - Progammatic file uploads to cloud storage.
+  - Programmatic file uploads to cloud storage.
 - Timeline: 4 full days for development
 
 ## Screenshots
